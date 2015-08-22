@@ -15,6 +15,8 @@ git show
 
 git log
 
+#For pulling from origin
+
 git fetch
 
 git pull
