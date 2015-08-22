@@ -14,3 +14,7 @@ git push
 git show 
 
 git log
+
+git fetch
+
+git pull
