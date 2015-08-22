@@ -20,3 +20,7 @@ git log
 git fetch
 
 git pull
+
+git checkout master
+
+git checkout <hadcode of the verion>
