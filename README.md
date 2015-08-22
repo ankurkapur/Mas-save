@@ -34,3 +34,5 @@ added ssh key and updated url
 More insertions
 
 Demo to Gautam
+
+stash example
