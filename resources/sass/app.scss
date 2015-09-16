@@ -1,0 +1,212 @@
+// The following two lines import the default Sencha Touch theme. If you are building
+// a new theme, remove them and the add your own CSS on top of the base CSS (which
+// is already included in your app.json file).
+// $base-color:#30f0f0;
+$base-color:white;
+
+$barColor-green: #94cf15;
+$barColor: $barColor-green;
+$barColor-red:tomato;
+$barcolor-yellow:lightgrey;
+$overlayColor: #fffde8;
+$backColor: white;
+$list-active-color:white;
+$sheet-bg-color:#363636;
+$sheet-bg-gradient:none;
+$scrollbarcolor:darkgrey;
+// Importing our custom web font.
+@import url('https://fonts.googleapis.com/css?family=Poiret+One');
+@import url('https://fonts.googleapis.com/css?family=Karla');
+@import url('http://fonts.googleapis.com/css?family=Noto+Sans');
+@import url('http://fonts.googleapis.com/css?family=Muli');
+@import url('http://fonts.googleapis.com/css?family=Roboto:100,400,700,700italic,500,400italic,500italic,900,900italic,100italic,300,300italic');
+
+// use custom web font as default
+$font-family: 'Roboto', cursive;
+
+
+@import 'sencha-touch/default';
+
+@import 'sencha-touch/default/all';
+
+
+.wrap{
+  width: 600px;
+  margin: 0 auto;
+}
+/* -------------------------------------
+ * Bar container
+ * ------------------------------------- */
+.progress-radial{
+  float: left;
+  margin: 0;
+  position: relative;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 1px solid lightgrey; // remove gradient color
+  background-color: $barColor; // default 100%
+}
+/* -------------------------------------
+ * Optional centered circle w/text
+ * ------------------------------------- */  
+.progress-radial .overlay{
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  background-color: $overlayColor;
+  border:1px solid lightgrey;
+  border-radius: 50%;
+  margin-left: 4px;
+  margin-top: 4px;
+  text-align: center;
+  line-height: 60px;
+  font-size: 16px;
+  }
+/* -------------------------------------
+ * Mixin for progress-% class
+ * ------------------------------------- */
+
+$step: 5; // step of % for created classes
+
+$loops: round(100 / $step);
+$increment: 360 / $loops;
+$half: round($loops / 2);
+@for $i from 0 through $loops{
+  .progress-#{$i*$step}{
+
+  	@if($i < round($half/2)){
+  		$barColor:$barColor-red;
+  	}@else if($i < round($half/2)*3){
+  		$barColor:$barcolor-yellow;
+  	}@else{
+  		$barColor:$barColor-green;
+  	}
+    @if($i < $half){
+      $nextdeg: 90deg + ( $increment * $i );
+      background-image: linear-gradient(90deg, $backColor 50%, transparent 50%, transparent), linear-gradient($nextdeg, $barColor 50%, $backColor 50%, $backColor);
+    }@else{
+      $nextdeg: -90deg + ( $increment * ( $i - $half ) );
+      background-image: linear-gradient($nextdeg, $barColor 50%, transparent 50%, transparent), linear-gradient(270deg, $barColor 50%, $backColor 50%, $backColor);
+  }
+}}
+
+// Custom code goes here..
+
+// Examples of using the icon mixin:
+// @include icon('user');
+@include font-face('icomoon', inline-font-files('icomoon.woff', woff));
+@include icon('news', '\e600', 'icomoon');
+@include icon('group', '\e601', 'icomoon');
+@include icon('notification', '\e602', 'icomoon');
+@include icon('settings', '\e603', 'icomoon');
+@include icon('heart', '\e604', 'icomoon');
+@include icon('whale', '\e605', 'icomoon');
+@include icon('dollar', '\e606', 'icomoon');
+@include icon('amazon', '\e607', 'icomoon');
+@include icon('freeship', '\e608', 'icomoon');
+@include icon('add', '\e60b', 'icomoon');
+@include icon('trend', '\e60d', 'icomoon');
+@include icon('alerts', '\e612', 'icomoon');
+@include icon('delete', '\e61b', 'icomoon');
+
+.x-innerhtml {
+    color: #222424;
+    text-shadow: 0px 1px rgba(255,255,255,.3);
+
+}
+
+.multiColor{
+	color: #222424;;
+	letter-spacing:-32px;
+	margin-right:32px;
+}
+
+.multiColor:after {content:"\e60e"; color: orange}
+
+.newsFeed{
+	background-color:#ffffff;
+	border-radius:2px;
+	margin:0;
+	font-size:32px;
+	color:darkgrey;
+	padding:0;
+	box-shadow:darkgrey!important;
+}
+
+.x-list .x-list-item .x-list-item-body, .x-list .x-list-item.x-list-item-tpl .x-innerhtml {
+    padding:5px;
+}
+
+body.x-ios.x-phone {
+    font-size: 80%;
+}
+
+.x-badge{
+	font-size:14px!important;
+	font-weight:400!important;
+	font-family:'Karla'!important;
+	color:white!important;
+}
+
+.accordion-list-item{
+  border-bottom:1px solid lightgrey;
+}
+
+.meter { 
+  height: 10px;  /* Can be anything */
+  position: relative;
+  background: #555;
+  -moz-border-radius: 25px;
+  -webkit-border-radius: 25px;
+  border-radius: 25px;
+  box-shadow: inset 0 -1px 1px rgba(255,255,255,0.3);
+}
+
+.meter > span {
+  display: block;
+  height: 100%;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  background-color: rgb(43,194,83);
+  background-image: linear-gradient(
+    center bottom,
+    rgb(43,194,83) 37%,
+    rgb(84,240,84) 69%
+  );
+  box-shadow: 
+    inset 0 2px 9px  rgba(255,255,255,0.3),
+    inset 0 -2px 6px rgba(0,0,0,0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.button-Orange{
+      background-color: #FF8000;
+    background-image: -webkit-linear-gradient(top, orange,orange 3%,orange);
+    background-image: -moz-linear-gradient(top, orange,orange 3%,orange);
+    background-image: -o-linear-gradient(top, orange,orange 3%,orange);
+    background-image: -ms-linear-gradient(to bottom, orange,orange 3%,orange);
+    border-radius:0;
+    border-color: whitesmoke;
+    border-left: 0;
+    border-right: 0;
+    height: 30px;
+}
+
+.x-hasbadge .x-badge{
+  margin-top:-2px;
+}
+
+.x-scroll-indicator.rounded>:nth-child(2) {
+    content:none!important;
+    opacity:1!important;
+    background: $scrollbarcolor!important;
+}
+
+.x-scroll-indicator.rounded>* {
+    background-color: $scrollbarcolor!important;
+    opacity:1!important;
+}

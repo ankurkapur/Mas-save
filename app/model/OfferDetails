@@ -1,0 +1,34 @@
+Ext.define('Massave.model.OfferDetails', {
+                   extend: 'Ext.data.Model',
+                   config: {
+                       fields: [
+                       {
+                           name: 'headerContent',
+                           type: 'string'
+                       },
+                       {
+                       		name:'productName',
+                       		type:'string'
+                       	},
+                       	{
+                       		name:'productValue',
+                       		type:'string'
+                       	},
+                       	{
+                       		name:'productQuantity',
+                       		type:'string'
+                       	},
+                       	{
+                       		name:'productPicURL',
+                       		type:'string'
+                       	},
+                        {
+                          name:'disclosure'
+                        },
+                        {
+                          name:'userIndex',
+                          type:'integer'
+                        }
+                       ]
+                   }
+               });
