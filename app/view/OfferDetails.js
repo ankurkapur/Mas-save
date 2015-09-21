@@ -9,31 +9,13 @@ Ext.define('Massave.view.OfferDetails',{
 	],
     count:1,
     setOfferData:function(dataObject){
-        
-        //var newStore = Ext.create('Massave.store.OfferDetails',{storeId:this.count});
-        //newStore.setData(dataObject);
-        //newStore.setRoot(dataObject);
-        
-        //this.down('container#userList').applyStore(newStore);
-       
-        //this.down('container#userList').setNewStore(newStore);
-
-        //this.count = this.count+1
-        //this.down('container#userList').down('list').removeAll(true);
         this.down('container#userList').down('list').getStore().removeAll(true);
         var newDataObject = Ext.JSON.decode(Ext.JSON.encode(dataObject));
         this.down('container#userList').down('list').getStore().setData(newDataObject);
-        this.down('container#userList').doAllExpand();
-        //this.down('container#userList').down('list').setData(dataObject);
-        
     },
     deleteUser:function(index){
         var listStore = this.down('container#userList').down('list').getStore();
-        console.log(index);
-        console.log(listStore.getModel().getFields());
         var dataElementIndex = listStore.find('userIndex',index);
-        console.log('deleting inside the container');
-        console.log(dataElementIndex);
         listStore.removeAt(dataElementIndex);
         this.down('container#userList').down('list').refresh();
         this.down('container#userList').down('list').setOnItemDisclosure(true);
@@ -53,11 +35,9 @@ Ext.define('Massave.view.OfferDetails',{
                                 style:'height:20px;vertical-align:middle;margin-top:6px;',
                                 height:25,
                                 ui:'plain',
-                                flex:1,
                                 listeners:{
                                 	tap:function( me, e, eOpts ){
-                                		//console.log('I was here');
-                                		me.up('container#mainContainer').setActiveItem(1);
+                                		me.up('container#mainContainer').activateView('Main');
                                 	}
                                 }
                             },
@@ -71,11 +51,10 @@ Ext.define('Massave.view.OfferDetails',{
                                         '</div>'
                                     ].join(""),
                                 style:'margin:5px;text-align:center',
-                                flex:4
+                                flex:1
                             },
                             {
                                 xtype: 'component',
-                                flex:1,
                                 html:[
                                     "<div style='font-family:icomoon;font-size:24px;margin-top:5px;text-align:right' class='multiColor'>",
                                         "&#xe607;",
@@ -86,8 +65,8 @@ Ext.define('Massave.view.OfferDetails',{
                     },{
                         xtype:'component',
                         html:[
-                            '<div class="meter">',
-                              '<span style="width: 75%"></span>',
+                            '<div style="width=100%;height:2px;border:0">',
+                              '<span style="width: 75%;height:2px;display:block;background-color:green"></span>',
                             '</div>'
                             ].join("")
                     },
@@ -95,6 +74,7 @@ Ext.define('Massave.view.OfferDetails',{
                         xtype:'button',
                         text:'Continue to purchase',
                         cls:'button-Orange',
+                        //ui:'plain',
                         height:40
                     },
                     {
@@ -129,9 +109,17 @@ Ext.define('Massave.view.OfferDetails',{
                    		flex:1,
                    		useComponents:true,
                    		defaultType:'examplelistitem',
+                        calculateNewHeight:function(){
+                                var store = this.getList().getStore();
+                                var totalHeight = 0;
+                                store.each(function(curItem){
+                                        totalHeight = totalHeight + 80;
+                                });
+                                this.getList().setHeight(totalHeight);
+                        },
                         listeners:{
                             itemtap:function(me,list,index,target,record,e){
-
+                               
                             },
                             afteritemtap:function(me, list, index, target, record, e){
                                 var store = list.getStore();
@@ -139,11 +127,12 @@ Ext.define('Massave.view.OfferDetails',{
                                     var itemRef = list.getItemAt(store.indexOf(curItem));
                                     if(!curItem.isLeaf()){
                                         itemRef.offerHeaderTemplate.setDeleteOperation();
-                                        itemRef.offerHeaderTemplate.setDeleteOperation(true);
+                                        itemRef.offerHeaderTemplate.collapseExpandDelete(true);
                                     }
 
                                 });
-                                
+
+                                 //me.calculateNewHeight();
 
                             },
                             recordsDeleted:function(me, list){
@@ -156,13 +145,22 @@ Ext.define('Massave.view.OfferDetails',{
 
                                 });
                             },
-                            onItemTapHold:function(me,list,index,record,e){
-                                 console.log(index + list.getStore().indexOf(record));
-
+                            itemswipe:function(me,list,index,record,e){
                                 var itemRef = list.getItemAt(list.getStore().indexOf(record));
 
-                                console.log(itemRef);
-                                itemRef.offerHeaderTemplate.collapseExpandDelete();
+                                if(e.direction == 'left'){
+                                    //list.setScrollable(false);
+                                    itemRef.offerHeaderTemplate.collapseExpandDelete();
+
+                                }else if(e.direction == 'right'){
+                                    itemRef.offerHeaderTemplate.collapseExpandDelete(true);
+                                    //list.setScrollable(true);    
+                                }else{
+
+                                }
+
+                                
+
                                 e.stopEvent();
                             }
                         }
@@ -185,7 +183,12 @@ Ext.define('Massave.view.OfferDetails',{
 	                            xtype:'button',
 	                            text:'<span style="font-family:icomoon;font-size:24px;width:100px;height:50px">&#xe60b;&#xe619;</span>',
 	                            style:'text-align:center;height:40px',
-	                            ui:'plain'
+	                            ui:'plain',
+                                listeners:{
+                                    tap:function( me, e, eOpts){
+                                        me.up('container#mainContainer').activateView('addProductHome');
+                                    }
+                                }
 	                        },
 	                        {
 	                            xtype:'spacer',
@@ -193,11 +196,21 @@ Ext.define('Massave.view.OfferDetails',{
 	                        },
 	                        {
 	                            xtype:'button',
-	                            text:'<span style="font-family:icomoon;font-size:24px;width:100px;height:50px">&#xe618;</span>',
+	                            text:'<span style="font-family:icomoon;font-size:27px;width:100px;height:50px">&#xe61b;</span>',
 	                            style:'text-align:right;height:40px;width:75px',
-	                            badgeText:'2',
 	                            ui:'plain'
-	                        }
+	                        },
+                            {
+                                xtype:'spacer',
+                                flex:1
+                            },
+                            {
+                                xtype:'button',
+                                text:'<span style="font-family:icomoon;font-size:24px;width:100px;height:50px"> &#xe618;</span>',
+                                style:'text-align:right;height:40px;width:75px',
+                                badgeText:'2',
+                                ui:'plain'
+                            }
 	                    ]
                     }
                 ]

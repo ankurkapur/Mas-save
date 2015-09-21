@@ -108,7 +108,7 @@ Ext.define('Ext.ux.AccordionList', {
          * Default layout config.
          */
         layout: {
-            type: 'fit'
+            type: 'vbox'
         },
 
         /**
@@ -128,6 +128,8 @@ Ext.define('Ext.ux.AccordionList', {
          * List's default listScrollable config.
          */
         listScrollable: true,
+
+        scrollable:{direction:'vertical',directionLock:true},
 
         /**
          * @cfg {String} headerItemTpl
@@ -291,6 +293,13 @@ Ext.define('Ext.ux.AccordionList', {
         newStore.on('load', me.onLoadStore, me);
         list.setStore(newStore);
     },
+
+    listeners:{
+        painted:function(element,eopts){
+            var listObject = this.down('list');
+        }
+
+    },
     
     /**
      * @private
@@ -301,14 +310,12 @@ Ext.define('Ext.ux.AccordionList', {
             config = me.makeListConfig(),
             list;
 
-         
-
-
         list = Ext.create('Ext.dataview.List', config);
 
         me.applyMoreListSetting(list);
         me.setList(list);
         me.add(list);
+        //me.add({xtype:'button',html:'Delete Offer',cls:'button-red'});
         return list;
     },
 
@@ -320,7 +327,9 @@ Ext.define('Ext.ux.AccordionList', {
         var me = this,
             defaultConfig = {
                 scrollToTopOnRefresh: false,
-                onItemDisclosure:true
+                onItemDisclosure:true,
+                scrollable:{direction:'vertical',directionLock:true},
+                flex:1
             },
             config;
 
@@ -420,6 +429,7 @@ Ext.define('Ext.ux.AccordionList', {
 
         //list.getStore().on('removerecords',me.onRecordsDelete,me);
         list.on('itemtaphold',me.onItemTapHold,me);
+        list.on('itemswipe',me.onItemSwipe,me);
         list.on('itemtap', me.onItemTap, me);
         list.on('refresh', me.onListRefresh, me);
         list.on('itemindexchange', me.onItemIndexChange, me);
@@ -428,7 +438,11 @@ Ext.define('Ext.ux.AccordionList', {
     },
 
     onItemTapHold:function(list, index, target, record, e){
-        this.fireEvent('itemTapHold',this,list,index,record,e);
+        this.fireEvent('itemtaphold',this,list,index,record,e);
+    },
+
+     onItemSwipe:function(list, index, target, record, e){
+        this.fireEvent('itemswipe',this,list,index,record,e);
     },
 
     /**
@@ -448,14 +462,12 @@ Ext.define('Ext.ux.AccordionList', {
         list.on({
             element: 'element',
             delegate: '.accordion-list-item',
-            tap: list.onItemTap
+            tap: list.onItemTap,
+            taphold: list.onItemTapHold,
+            swipe: list.onItemSwipe
         });
 
-        list.on({
-            element: 'element',
-            delegate: '.accordion-list-item',
-            taphold: list.onItemTapHold
-        });
+
     },
 
     /**

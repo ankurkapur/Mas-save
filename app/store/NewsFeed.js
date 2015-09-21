@@ -12,7 +12,7 @@ Ext.define('Massave.store.NewsFeed',{
                         "userDetails" : "{userName:'Ishita Kapur',itemsCount:'5 items',itemsValue:'$5.00',userProfilePic:'/Massave/images/Unknown.png'}",
                         "items" : [ 
                         			{
-                        			"productDetails":'{"productName" : "Apple Watch","productQuantity":"5","productValue":"$5","productPicUrl":"/Massave/images/product.png"}',
+                        			"productDetails":'{"productName" : "Apple Watch","productQuantity":"5 items","productValue":"$5.00","productPicUrl":"/Massave/images/product.png"}',
                                     "leaf" : true
                                 	}
                                 ]
@@ -21,19 +21,19 @@ Ext.define('Massave.store.NewsFeed',{
                         "userDetails" : "{userName:'Gautam Naik',itemsCount:'5 items',itemsValue:'$5.00',userProfilePic:'/Massave/images/Unknown.png'}",
                         "items" : 	[
 	                        			{
-	                        			"productDetails":'{"productName" : "Macbook Air 13","productQuantity":"5","productValue":"$5","productPicUrl":"/Massave/images/product.png"}',
+	                        			"productDetails":'{"productName" : "Macbook Air 13","productQuantity":"5 items","productValue":"$5","productPicUrl":"/Massave/images/product.png"}',
 	                                    "leaf" : true
 	                                	},
 	                                	{
-	                        			"productDetails":'{"productName" : "Macbook Air 13","productQuantity":"5","productValue":"$5","productPicUrl":"/Massave/images/product.png"}',
+	                        			"productDetails":'{"productName" : "Macbook Air 13","productQuantity":"5 items","productValue":"$5.00","productPicUrl":"/Massave/images/product.png"}',
 	                                    "leaf" : true
 	                                	},
 	                                	{
-	                        			"productDetails":'{"productName" : "Macbook Air 13","productQuantity":"5","productValue":"$5","productPicUrl":"/Massave/images/product.png"}',
+	                        			"productDetails":'{"productName" : "Macbook Air 13","productQuantity":"5 items","productValue":"$5.00","productPicUrl":"/Massave/images/product.png"}',
 	                                    "leaf" : true
 	                                	},
 	                                	{
-	                        			"productDetails":'{"productName" : "Macbook Air 13","productQuantity":"5","productValue":"$5","productPicUrl":"/Massave/images/product.png"}',
+	                        			"productDetails":'{"productName" : "Macbook Air 13","productQuantity":"5 items","productValue":"$5.00","productPicUrl":"/Massave/images/product.png"}',
 	                                    "leaf" : true
 	                                	}
                         			]
@@ -42,7 +42,7 @@ Ext.define('Massave.store.NewsFeed',{
                         "userDetails" : "{userName:'Trupti Naik',itemsCount:'5 items',itemsValue:'$5.00',userProfilePic:'/Massave/images/Unknown.png'}",
                         "items" : 	[
 	                        			{
-	                        			"productDetails":'{"productName" : "Jewellery","productQuantity":"5","productValue":"$5","productPicUrl":"/Massave/images/product.png"}',
+	                        			"productDetails":'{"productName" : "Jewellery","productQuantity":"5 items","productValue":"$5.00","productPicUrl":"/Massave/images/product.png"}',
 	                                    "leaf" : true
 	                                	}
                         			]
@@ -51,7 +51,7 @@ Ext.define('Massave.store.NewsFeed',{
                         "userDetails" : "{userName:'Sushant Mishra',itemsCount:'5 items',itemsValue:'$5.00',userProfilePic:'/Massave/images/Unknown.png'}",
                         "items" : 	[
 	                        			{
-	                        			"productDetails":'{"productName" : "Underwear","productQuantity":"5","productValue":"$5","productPicUrl":"/Massave/images/product.png"}',
+	                        			"productDetails":'{"productName" : "Underwear","productQuantity":"5 items","productValue":"$5.00","productPicUrl":"/Massave/images/product.png"}',
 	                                    "leaf" : true
 	                                	}
                         			]
@@ -64,7 +64,7 @@ Ext.define('Massave.store.NewsFeed',{
                         "userDetails" : "{userName:'Ankur Kapur',itemsCount:'5 items',itemsValue:'$5.00',userProfilePic:'/Massave/images/Unknown.png'}",
                         "items" : [ 
                         			{
-                        			"productDetails":'{"productName" : "Apple Watch","productQuantity":"5","productValue":"$5","productPicUrl":"/Massave/images/product.png"}',
+                        			"productDetails":'{"productName" : "Apple Watch","productQuantity":"5 items","productValue":"$5.00","productPicUrl":"/Massave/images/product.png"}',
                                     "leaf" : true
                                 	}
                                 ]
@@ -73,7 +73,7 @@ Ext.define('Massave.store.NewsFeed',{
                         "userDetails" : "{userName:'Gautam Naik',itemsCount:'5 items',itemsValue:'$5.00',userProfilePic:'/Massave/images/Unknown.png'}",
                         "items" : 	[
 	                        			{
-	                        			"productDetails":'{"productName" : "Macbook Air 13","productQuantity":"5","productValue":"$5","productPicUrl":"/Massave/images/product.png"}',
+	                        			"productDetails":'{"productName" : "Macbook Air 13","productQuantity":"5 items","productValue":"$5.00","productPicUrl":"/Massave/images/product.png"}',
 	                                    "leaf" : true
 	                                	}
                         			]
@@ -82,7 +82,7 @@ Ext.define('Massave.store.NewsFeed',{
                         "userDetails" : "{userName:'Trupti Naik',itemsCount:'5 items',itemsValue:'$5.00',userProfilePic:'/Massave/images/Unknown.png'}",
                         "items" : 	[
 	                        			{
-	                        			"productDetails":'{"productName" : "Jewellery","productQuantity":"5","productValue":"$5","productPicUrl":"/Massave/images/product.png"}',
+	                        			"productDetails":'{"productName" : "Jewellery","productQuantity":"5 items","productValue":"$5.00","productPicUrl":"/Massave/images/product.png"}',
 	                                    "leaf" : true
 	                                	}
                         			]
@@ -91,7 +91,7 @@ Ext.define('Massave.store.NewsFeed',{
                         "userDetails" : "{userName:'Sushant Mishra',itemsCount:'5 items',itemsValue:'$5.00',userProfilePic:'/Massave/images/Unknown.png'}",
                         "items" : 	[
 	                        			{
-	                        			"productDetails":'{"productName" : "Underwear","productQuantity":"5","productValue":"$5","productPicUrl":"/Massave/images/product.png"}',
+	                        			"productDetails":'{"productName" : "Underwear","productQuantity":"5 items","productValue":"$5.00","productPicUrl":"/Massave/images/product.png"}',
 	                                    "leaf" : true
 	                                	}
                         			]

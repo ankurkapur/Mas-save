@@ -154,12 +154,9 @@ body.x-ios.x-phone {
 }
 
 .meter { 
-  height: 10px;  /* Can be anything */
+  height: 2px;  /* Can be anything */
   position: relative;
-  background: #555;
-  -moz-border-radius: 25px;
-  -webkit-border-radius: 25px;
-  border-radius: 25px;
+  background: white;
   box-shadow: inset 0 -1px 1px rgba(255,255,255,0.3);
 }
 
@@ -184,20 +181,56 @@ body.x-ios.x-phone {
 }
 
 .button-Orange{
-      background-color: #FF8000;
+    background-color: #FF8000;
     background-image: -webkit-linear-gradient(top, orange,orange 3%,orange);
     background-image: -moz-linear-gradient(top, orange,orange 3%,orange);
     background-image: -o-linear-gradient(top, orange,orange 3%,orange);
     background-image: -ms-linear-gradient(to bottom, orange,orange 3%,orange);
     border-radius:0;
-    border-color: whitesmoke;
+    border:0;
     border-left: 0;
     border-right: 0;
-    height: 30px;
+}
+
+.button-red{
+    background-color: white;
+    background-image: -webkit-linear-gradient(top, white,white 3%,white);
+    background-image: -moz-linear-gradient(top, white,white 3%,white);
+    background-image: -o-linear-gradient(top, white,white 3%,white);
+    background-image: -ms-linear-gradient(to bottom, white,white 3%,white);
+    border-radius:0;
+    border:1px solid grey;
+    color:red;
+    border-left: 0;
+    border-right: 0;
+}
+
+.plainButtonLeft{
+    -webkit-box-flex: 1;
+    -ms-flex: 1 0 auto;
+    flex: 1 0 auto;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: left;
+    display: block;
+    overflow: hidden;
+}
+
+.plainButton{
+  background-color:white!important;
+  border-radius:0!important;
+  border-bottom:1px solid black!important;
 }
 
 .x-hasbadge .x-badge{
   margin-top:-2px;
+}
+
+.x-toolbar-dark.x-docked-top {
+   border:0;
 }
 
 .x-scroll-indicator.rounded>:nth-child(2) {
@@ -209,4 +242,17 @@ body.x-ios.x-phone {
 .x-scroll-indicator.rounded>* {
     background-color: $scrollbarcolor!important;
     opacity:1!important;
+}
+
+.x-form-fieldset{  
+    height: 35px;
+    margin: 2px 10px;
+}
+
+.x-list {
+    background-color: #FFFFFF;
+}
+
+.x-dataview {
+    background-color: #FFFFFF;
 }

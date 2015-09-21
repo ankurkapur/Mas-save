@@ -9,8 +9,7 @@ Ext.define('Massave.controller.RouteTest',{
 		}
 	},
 	onOfferDetails:function(id){
-		console.log('you just called offer details for id : ' + id);
 		Ext.Viewport.down('container#offerDetails').setOfferData(Ext.Viewport.down('container#MainView').down('list#offerList').getStore().getAt(id).data.items);
-		var mainContainer = Ext.Viewport.down('container#mainContainer').setActiveItem(0);
+		var mainContainer = Ext.Viewport.down('container#mainContainer').activateView('offerDetails');
 	}
 });
