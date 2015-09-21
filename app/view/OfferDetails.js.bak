@@ -71,6 +71,13 @@ Ext.define('Massave.view.OfferDetails',{
                             ].join("")
                     },
                     {
+                        xtype:'button',
+                        text:'Continue to purchase',
+                        cls:'button-Orange',
+                        //ui:'plain',
+                        height:40
+                    },
+                    {
                         xtype:'container',
                         layout:{type:'hbox',pack:'center'},
                         items:[
@@ -93,13 +100,6 @@ Ext.define('Massave.view.OfferDetails',{
                                     flex:1                                  
                                 }
                             ]
-                    },
-                    {
-                        xtype:'button',
-                        text:'Continue to purchase',
-                        cls:'button-Orange',
-                        //ui:'plain',
-                        height:40
                     },
                     {
                     	xtype:'accordionlist',
