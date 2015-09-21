@@ -1,0 +1,31 @@
+Ext.define('Massave.store.RecommendedProducts',{
+	extend:'Ext.data.Store',
+	requires:[
+		'Massave.model.RecommendedProducts'
+	],
+	config:{
+		model:'Massave.model.RecommendedProducts',
+		data:[
+			{'productPicURL':'/Massave/images/product.png','productDescription':'Apple Watch'},
+			{'productPicURL':'/Massave/images/product.png','productDescription':'Apple TV'},
+			{'productPicURL':'/Massave/images/product.png','productDescription':'Rado Watch'},
+			{'productPicURL':'/Massave/images/product.png','productDescription':'Book'},
+			{'productPicURL':'/Massave/images/product.png','productDescription':'Chair'},
+			{'productPicURL':'/Massave/images/product.png','productDescription':'Furniture'},
+			{'productPicURL':'/Massave/images/product.png','productDescription':'Sofa'},
+			{'productPicURL':'/Massave/images/product.png','productDescription':'Candles'},
+			{'productPicURL':'/Massave/images/product.png','productDescription':'Apple Watch'},
+			{'productPicURL':'/Massave/images/product.png','productDescription':'Apple Watch'},
+			{'productPicURL':'/Massave/images/product.png','productDescription':'Apple Watch'},
+			{'productPicURL':'/Massave/images/product.png','productDescription':'Apple Watch'},
+			{'productPicURL':'/Massave/images/product.png','productDescription':'Apple Watch'},
+			{'productPicURL':'/Massave/images/product.png','productDescription':'Apple Watch'},
+			{'productPicURL':'/Massave/images/product.png','productDescription':'Apple Watch'},
+			{'productPicURL':'/Massave/images/product.png','productDescription':'Apple Watch'},
+			{'productPicURL':'/Massave/images/product.png','productDescription':'Apple Watch'},
+			{'productPicURL':'/Massave/images/product.png','productDescription':'Apple Watch'},
+			{'productPicURL':'/Massave/images/product.png','productDescription':'Apple Watch'},
+			{'productPicURL':'/Massave/images/product.png','productDescription':'Apple Watch'}
+		]
+	}
+});
