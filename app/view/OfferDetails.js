@@ -6,8 +6,7 @@ Ext.define('Massave.view.OfferDetails',{
 		'Massave.view.OfferDetailsHeader',
 		'Ext.ux.AccordionList',
 		'Massave.view.ListItemTest',
-        'Massave.model.OfferDetailsSummary',
-        'Massave.framework.view.Container'
+        	'Massave.model.OfferDetailsSummary'
 	],
     count:1,
     setOfferData:function(dataObject){
