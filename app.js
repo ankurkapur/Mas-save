@@ -58,6 +58,27 @@ Ext.application({
                 return this;
             }
         });
+
+        Ext.override(Ext.Container,{
+            copyStoreToChildren:function(){
+                    for(var counter =0;counter<this.getItems().length;counter++){
+                        var item = this.getItems().items[counter];
+
+                        if(item.getTpl != undefined && item.getTpl() != ''){
+
+                            //if(item.getDefaultType == undefined){
+                                //console.log(item.getDefaultType());
+                                try{
+                                item.setRecord(this.getRecord());
+                            }catch(e){}
+                            //}
+                        }
+                        if(item.copyStoreToChildren != undefined){
+                                item.copyStoreToChildren();
+                        }
+                    }
+                }
+        });
         
 
         Ext.Viewport.add(Ext.create('Massave.view.MainContainer'));

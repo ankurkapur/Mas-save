@@ -12,7 +12,8 @@ Ext.define('Massave.model.NewsFeed',{
             {name: "userName", type:"string"},
             {name: "cartowner", type:"string"},
             {name:"items",type:"object"},
-            {name:"disclosure",type:"object"}
+            {name:"disclosure",type:"object"},
+            {name:'offerDetails',type:'object'}
         ]
     }
 });

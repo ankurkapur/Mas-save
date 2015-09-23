@@ -5,7 +5,9 @@ Ext.define('Massave.view.OfferDetails',{
 		'Massave.store.OfferDetails',
 		'Massave.view.OfferDetailsHeader',
 		'Ext.ux.AccordionList',
-		'Massave.view.ListItemTest'
+		'Massave.view.ListItemTest',
+        'Massave.model.OfferDetailsSummary',
+        'Massave.framework.view.Container'
 	],
     count:1,
     setOfferData:function(dataObject){
@@ -43,15 +45,21 @@ Ext.define('Massave.view.OfferDetails',{
                             },
                             {
                                 xtype:'label',
-                                html:[  '<div>',
-                                            '<span style="display:inline-block;margin:5px;text-align:center">Amazon Free Shipping</span>',
+                                itemId:'offerTypeLabel',
+                                tpl:[  '<div>',
+                                            '<span style="display:inline-block;margin:5px;text-align:center">','{offerType}','</span>',
                                         '</div>',
                                         '<div>',
-                                            '(<span style="font-family:icomoon">&#xe609;</span> $35.00)',
+                                            '(<span style="font-family:icomoon">&#xe609;</span> {offerTarget})',
                                         '</div>'
-                                    ].join(""),
+                                    ],
                                 style:'margin:5px;text-align:center',
-                                flex:1
+                                flex:1,
+                                listeers:{
+                                    initialize:function(me,ops){
+                                        me.setStore(me.up('container#OfferDetails').getStore());
+                                    }
+                                }
                             },
                             {
                                 xtype: 'component',
@@ -66,7 +74,7 @@ Ext.define('Massave.view.OfferDetails',{
                         xtype:'component',
                         html:[
                             '<div style="width=100%;height:2px;border:0">',
-                              '<span style="width: 75%;height:2px;display:block;background-color:green"></span>',
+                              '<span style="width: ', '{offerCompletion}', '%;height:2px;display:block;background-color:green"></span>',
                             '</div>'
                             ].join("")
                     },
@@ -76,19 +84,19 @@ Ext.define('Massave.view.OfferDetails',{
                         items:[
                                 {
                                     xtype:'label',
-                                    html:'2 days left <span style="font-family:icomoon;vertical-align:middle">&#xe602;</span>',
+                                    tpl:'{offerDaysLeft} days left <span style="font-family:icomoon;vertical-align:middle">&#xe602;</span>',
                                     style:'font-size:14px;text-align:left;line-height:40px;vertical-align:middle;margin-left:10px',
                                     flex:1
                                 },
                                 {
                                     xtype:'label',
-                                    html:'5 items',
+                                    tpl:'{offerTotalItems} items',
                                     style:'font-size:14px;text-align:center;line-height:40px;vertical-align:middle;',
                                     flex:1
                                 },
                                 {
                                     xtype:'label',
-                                    html:'$27.00',
+                                    tpl:'{offerTotalValue}',
                                     style:'font-size:14px;text-align:right;line-height:40px;vertical-align:middle;margin-right:10px',
                                     flex:1                                  
                                 }

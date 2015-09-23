@@ -1,0 +1,10 @@
+Ext.define('Massave.model.OfferDetailsSummary',{
+	extend:'Ext.data.Model',
+	fields:[
+		{name:'offerType',type:'string'},
+		{name:'offerTarget',type:'string'},
+		{name:'offerDaysLeft',type:'string'},
+		{name:'offerTotalItems',type:'int'},
+		{name:'offerTotalValue',type:'float'}
+	]
+});

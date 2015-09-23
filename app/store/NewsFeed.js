@@ -7,6 +7,13 @@ Ext.define('Massave.store.NewsFeed',{
 		model:'Massave.model.NewsFeed',
 		data:[
 			{disclosure:true,cartowner:'me',userlist:'3 Participants',type:'Amazon free shipping',timeleft:'2 days',offervalue:'$27.00',progress:20,imagesrc:'/Massave/images/ProfilePic.png',target:'$35',timeRemaining:'2 days left',userName:'Ankur Kapur',
+			offerDetails:{
+				offerType:'Amazon Free Shipping',
+				offerTarget:'35',
+				offerDaysLeft:5,
+				offerTotalItems:10,
+				offerTotalValue:25
+			},
 			items : [{
 						userIndex:1,
                         "userDetails" : "{userName:'Ishita Kapur',itemsCount:'5 items',itemsValue:'$5.00',userProfilePic:'/Massave/images/Unknown.png'}",
@@ -58,6 +65,13 @@ Ext.define('Massave.store.NewsFeed',{
                     }]
 			},
 			{userlist:'3 Participants',type:'Amazon free shipping',timeleft:'2 days',offervalue:'$27.00',progress:60,imagesrc:'/Massave/images/Unknown.png',target:'$35',timeRemaining:'2 days left',userName:'Gautam Naik',
+			offerDetails:{
+				offerType:'Amazon Free Shipping',
+				offerTarget:'35',
+				offerDaysLeft:2,
+				offerTotalItems:5,
+				offerTotalValue:20
+			},
 			items : [{
 						disclosure:true,
 						userIndex:1,
